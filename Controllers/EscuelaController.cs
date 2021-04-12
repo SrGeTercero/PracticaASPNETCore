@@ -1,4 +1,6 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
@@ -7,7 +9,13 @@ namespace Proyecto.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var escuela = new Escuela();
+            escuela.AñoFundacion = 2005;
+            escuela.EscuelaId = Guid.NewGuid().ToString();
+            escuela.NombreEscuela = "San Mateo Academy";
+
+
+            return View(escuela);
         }
     }
 }

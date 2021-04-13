@@ -13,6 +13,10 @@ namespace Proyecto.Controllers
             escuela.AñoCreacion = 2005;
             escuela.UniqueId = Guid.NewGuid().ToString();
             escuela.Nombre = "San Mateo Academy";
+            escuela.Ciudad = "Guatemala";
+            escuela.Pais = "Guatemala";
+            escuela.TipoEscuela = TiposEscuela.Secundaria;
+            escuela.Direccion = "5ta calle b, 10-15";
 
             ViewBag.cosaDinamica = "Pulp Fiction";
 

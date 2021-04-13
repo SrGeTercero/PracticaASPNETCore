@@ -10,10 +10,11 @@ namespace Proyecto.Controllers
         public IActionResult Index()
         {
             var escuela = new Escuela();
-            escuela.AñoFundacion = 2005;
-            escuela.EscuelaId = Guid.NewGuid().ToString();
-            escuela.NombreEscuela = "San Mateo Academy";
+            escuela.AñoCreacion = 2005;
+            escuela.UniqueId = Guid.NewGuid().ToString();
+            escuela.Nombre = "San Mateo Academy";
 
+            ViewBag.cosaDinamica = "Pulp Fiction";
 
             return View(escuela);
         }

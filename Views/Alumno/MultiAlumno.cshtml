@@ -1,6 +1,5 @@
 ﻿@model List<Alumno>
 
-
 @{
     ViewData["Title"] = "Información Alumno";
     Layout = "_Simple";
@@ -8,25 +7,9 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<strong>Utilizando Tabla de Botstrap</strong>
+<strong>Desde la vista parcial - Utilizando Tabla de Botstrap</strong>
 
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Id</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var alumno in Model)
-        {
-            <tr>
-                <td>@alumno.Nombre</td>
-                <td>@alumno.UniqueId</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<partial name="ListaObjetoEscuela" />
 
 <p><strong>@ViewBag.cosaDinamica</strong></p>
 <p><strong>@ViewData["fecha"]</strong></p>

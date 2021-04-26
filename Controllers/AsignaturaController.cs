@@ -9,7 +9,7 @@ namespace Proyecto.Controllers
     {
         public IActionResult Index()
         {
-            return View( new Asignatura{Nombre = "Programación", UniqueId = Guid.NewGuid().ToString()} );
+            return View( new Asignatura{Nombre = "Programación", Id = Guid.NewGuid().ToString()} );
         }
         
         public IActionResult MultiAsignatura()
@@ -21,11 +21,11 @@ namespace Proyecto.Controllers
 
             List<Asignatura> listaAsignaturas = new List<Asignatura>()
             {
-                new Asignatura{Nombre = "Matemáticas", UniqueId = Guid.NewGuid().ToString()},
-                new Asignatura{Nombre = "Educación Física", UniqueId = Guid.NewGuid().ToString()},
-                new Asignatura{Nombre = "Castellano", UniqueId = Guid.NewGuid().ToString()},
-                new Asignatura{Nombre = "Ciencias Naturales", UniqueId = Guid.NewGuid().ToString()},
-                new Asignatura{Nombre = "Programación", UniqueId = Guid.NewGuid().ToString()}
+                new Asignatura{Nombre = "Matemáticas", Id = Guid.NewGuid().ToString()},
+                new Asignatura{Nombre = "Educación Física", Id = Guid.NewGuid().ToString()},
+                new Asignatura{Nombre = "Castellano", Id = Guid.NewGuid().ToString()},
+                new Asignatura{Nombre = "Ciencias Naturales", Id = Guid.NewGuid().ToString()},
+                new Asignatura{Nombre = "Programación", Id = Guid.NewGuid().ToString()}
             };
 
             ViewBag.cosaDinamica = "PulpFiction";

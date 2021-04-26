@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto.Models;
 
@@ -7,20 +8,20 @@ namespace Proyecto.Controllers
 
     public class EscuelaController : Controller
     {
+        private EscuelaContext _context;
+        
         public IActionResult Index()
         {
-            var escuela = new Escuela();
-            escuela.AñoCreacion = 2005;
-            escuela.UniqueId = Guid.NewGuid().ToString();
-            escuela.Nombre = "San Mateo Academy";
-            escuela.Ciudad = "Guatemala";
-            escuela.Pais = "Guatemala";
-            escuela.TipoEscuela = TiposEscuela.Secundaria;
-            escuela.Direccion = "5ta calle b, 10-15";
-
             ViewBag.cosaDinamica = "Pulp Fiction";
+            
+            var escuela = _context.Escuelas.FirstOrDefault();
 
             return View(escuela);
+        }
+
+        public EscuelaController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }

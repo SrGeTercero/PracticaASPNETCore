@@ -24,6 +24,8 @@ namespace Proyecto.Controllers
 
             ViewBag.cosaDinamica = "PulpFiction";
             ViewBag.fecha = DateTime.Now;
+
+            //asldkjals
             
             return View("MultiAlumno",listaAlumnos);
         }

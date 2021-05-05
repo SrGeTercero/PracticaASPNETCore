@@ -10,7 +10,7 @@ namespace Proyecto.Controllers
     {
         public IActionResult Index()
         {
-            return View( new Asignatura{Nombre = "Juan Perez", UniqueId = Guid.NewGuid().ToString()} );
+            return View( new Asignatura{Nombre = "Juan Perez", Id = Guid.NewGuid().ToString()} );
         }
         
         public IActionResult MultiAlumno()
@@ -30,7 +30,7 @@ namespace Proyecto.Controllers
             return View("MultiAlumno",listaAlumnos);
         }
 
-        private List<Alumno> GenerarAlumnosAlAzar()
+        private List<Alumno> GenerarAlumnosAlAzar()        
         {
             string[] nombre1 = {"German","Luis","Devora","Irma","Alison","Juan","Pedro"};
             string[] apellido1 = {"Sandoval","Orantes","Rodriguez","Perez","Alvarez","Alvizuez","Cuellar"};
@@ -43,10 +43,10 @@ namespace Proyecto.Controllers
                                     from a1 in apellido1
                                     select new Alumno{
                                         Nombre = $"{n1} {n2} {a1}",
-                                        UniqueId = Guid.NewGuid().ToString()
+                                        Id = Guid.NewGuid().ToString()
                                         };
             
-            return listaDeAlumnos.OrderBy((al) => al.UniqueId).ToList();
+            return listaDeAlumnos.OrderBy((al) => al.Id).ToList();
         }
     }
 }

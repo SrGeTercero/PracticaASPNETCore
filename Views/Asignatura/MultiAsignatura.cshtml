@@ -1,0 +1,16 @@
+﻿@model List<Asignatura>
+
+
+@{
+    ViewData["Title"] = "Información Asignatura";
+    Layout = "_Simple";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<strong>Desde la vista parcial</strong>
+
+<partial name="ListaObjetoEscuela" />
+
+<p><strong>@ViewBag.cosaDinamica</strong></p>
+<p><strong>@ViewData["fecha"]</strong></p>

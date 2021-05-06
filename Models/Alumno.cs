@@ -5,7 +5,11 @@ namespace Proyecto.Models
 {
     public class Alumno : ObjetoEscuelaBase
     {
-        public List<Evaluación> Evaluaciones { get; set; } = new List<Evaluación>();
+        //referencia hacia padre
+        public string CursoId { get; set; }
+        public Curso Curso { get; set; }
         
+        //referencia hacia hijo
+        public List<Evaluación> Evaluaciones { get; set; }
     }
 }

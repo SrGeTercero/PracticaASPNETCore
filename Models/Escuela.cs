@@ -5,14 +5,19 @@ namespace Proyecto.Models
 {
     public class Escuela : ObjetoEscuelaBase
     {
+        //propiedades normales
         public int AñoCreacion{get; set;}
         public string Pais { get; set; }
         public string Ciudad { get; set; }
         public TiposEscuela TipoEscuela { get; set; }
-        public List<Curso> Cursos { get; set; }
         public string Direccion { get; set; }
+        
+        //referencia hacia hijos
+        public List<Curso> Cursos { get; set; }
 
-        //Nuevo constructor, basado en lenguajes funcional.
+
+        //CONSTRUCTORES
+         //Nuevo constructor, basado en lenguajes funcional.
         public Escuela(string nombre, int añoCreacion) => (Nombre, AñoCreacion) = (nombre, añoCreacion);
 
         public Escuela(string nombre, int añoCreacion, TiposEscuela tiposEscuela, 

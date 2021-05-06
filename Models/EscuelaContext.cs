@@ -25,7 +25,7 @@ namespace Proyecto.Models
             var escuela = new Escuela();
             escuela.AñoCreacion = 2005;
             escuela.Id = Guid.NewGuid().ToString();
-            escuela.Nombre = "San Mateo Academy";
+            escuela.Nombre = "San Mateo University";
             escuela.Ciudad = "Guatemala";
             escuela.Pais = "Guatemala";
             escuela.TipoEscuela = TiposEscuela.Secundaria;

@@ -9,7 +9,10 @@ namespace Proyecto.Controllers
     public class EscuelaController : Controller
     {
         private EscuelaContext _context;
-        
+        public EscuelaController(EscuelaContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             ViewBag.cosaDinamica = "Pulp Fiction";
@@ -17,11 +20,6 @@ namespace Proyecto.Controllers
             var escuela = _context.Escuelas.FirstOrDefault();
 
             return View(escuela);
-        }
-
-        public EscuelaController(EscuelaContext context)
-        {
-            _context = context;
         }
     }
 }

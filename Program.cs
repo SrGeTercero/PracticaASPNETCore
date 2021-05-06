@@ -17,13 +17,17 @@ namespace Proyecto
     {
         public static void Main(string[] args)
         {
+            //ORIGINAL
             //CreateWebHostBuilder(args).Build().Run();
-            var host = CreateWebHostBuilder(args).Build();
             
-            using(var scope = host.Services.CreateScope())
+            //NUEVO, necesario para controlar en que momento se envian a crear los datos...
+            
+            var host = CreateWebHostBuilder(args).Build(); //se crea el web server
+            
+            using(var scope = host.Services.CreateScope()) //se agrega la declaracion par aque no se quede en memoria y optimizarlo, para que cumpla el ciclo de vida
             {
                 var services = scope.ServiceProvider;
-                try
+                try //se controla si noy hay acceso a la base de datos
                 {
                     var context = services.GetRequiredService<EscuelaContext>();
                     

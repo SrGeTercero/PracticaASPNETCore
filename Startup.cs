@@ -36,6 +36,7 @@ namespace Proyecto
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            //Nuevo, para crear los datos desde los servicios
             services.AddDbContext<EscuelaContext>(options => options.UseInMemoryDatabase(databaseName: "testDB"));
         }
 

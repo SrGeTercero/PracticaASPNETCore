@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto.Models;
-using System.Linq;
 
 namespace Proyecto.Controllers
 {

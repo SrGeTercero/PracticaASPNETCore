@@ -11,7 +11,7 @@ namespace Proyecto.Models
 
         //propiedad normal
         public TiposJornada Jornada { get; set; }
-        public string Direccion { get; set; }
+        //public string Direccion { get; set; }
         
         //referencia hacia hijos
         public List<Asignatura> Asignaturas {get; set;}

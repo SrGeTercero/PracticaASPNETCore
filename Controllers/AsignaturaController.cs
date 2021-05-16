@@ -14,29 +14,32 @@ namespace Proyecto.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            //return View( new Asignatura{Nombre = "Programación", Id = Guid.NewGuid().ToString()} );
+        // public IActionResult Index()
+        // {
+        //     //return View( new Asignatura{Nombre = "Programación", Id = Guid.NewGuid().ToString()} );
 
-            return View(_context.Asignaturas.FirstOrDefault());
+        //     return View(_context.Asignaturas.FirstOrDefault());
+        // }
+
+        [Route("Asignatura/Index")]
+        [Route("Asignatura/Index/{asignaturaId}")]
+        public IActionResult Index(string asignaturaId)
+        {
+            if(!string.IsNullOrEmpty(asignaturaId))
+            {
+                var asignatura = from asig in _context.Asignaturas
+                                where asig.Id == asignaturaId
+                                select asig;
+
+                return View(asignatura.SingleOrDefault());
+            }else
+            {
+                return View("MultiAsignatura",_context.Asignaturas);
+            }
         }
         
         public IActionResult MultiAsignatura()
         {
-            // var asignatura = new Asignatura{
-            //     UniqueId = Guid.NewGuid().ToString(),
-            //     Nombre = "Programación"
-            // };
-
-            // List<Asignatura> listaAsignaturas = new List<Asignatura>()
-            // {
-            //     new Asignatura{Nombre = "Matemáticas", Id = Guid.NewGuid().ToString()},
-            //     new Asignatura{Nombre = "Educación Física", Id = Guid.NewGuid().ToString()},
-            //     new Asignatura{Nombre = "Castellano", Id = Guid.NewGuid().ToString()},
-            //     new Asignatura{Nombre = "Ciencias Naturales", Id = Guid.NewGuid().ToString()},
-            //     new Asignatura{Nombre = "Programación", Id = Guid.NewGuid().ToString()}
-            // };
-
             ViewBag.cosaDinamica = "PulpFiction";
             ViewBag.fecha = DateTime.Now;
             

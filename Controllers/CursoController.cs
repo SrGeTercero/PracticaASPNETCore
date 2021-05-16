@@ -6,10 +6,10 @@ using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
-    public class AlumnoController : Controller
+    public class CursoController : Controller
     {
         private EscuelaContext _context;
-        public AlumnoController(EscuelaContext context)
+        public CursoController(EscuelaContext context)
         {
             _context = context;
         }
@@ -19,18 +19,18 @@ namespace Proyecto.Controllers
         {
             if(!string.IsNullOrEmpty(id))
             {
-                var alumno = from alum in _context.Alumnos
-                                where alum.Id == id
-                                select alum;
+                var curso = from cur in _context.Cursos
+                                where cur.Id == id
+                                select cur;
 
-                return View(alumno.SingleOrDefault());
+                return View(curso.SingleOrDefault());
             }else
             {
-                return View("MultiAlumno",_context.Alumnos);
+                return View("MultiCurso",_context.Cursos);
             }
         }
         
-        public IActionResult MultiAlumno()
+        public IActionResult MultiCurso()
         {
             // var asignatura = new Asignatura{
             //     UniqueId = Guid.NewGuid().ToString(),
@@ -44,7 +44,7 @@ namespace Proyecto.Controllers
 
             //asldkjals
             
-            return View("MultiAlumno",_context.Alumnos);
+            return View("MultiCurso",_context.Cursos);
         }
     }
 }

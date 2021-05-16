@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Curso>
+
+@{
+    ViewData["Title"] = "Información Curso";
+    Layout = "_Simple";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<strong>Desde la vista parcial - Utilizando Tabla de Botstrap</strong>
+
+<partial name="ListaObjetoEscuela" />
+
+<p><strong>@ViewBag.cosaDinamica</strong></p>
+<p><strong>@ViewData["fecha"]</strong></p>

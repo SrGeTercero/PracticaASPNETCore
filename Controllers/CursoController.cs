@@ -14,7 +14,6 @@ namespace Proyecto.Controllers
             _context = context;
         }
 
-    
         public IActionResult Index(string id)
         {
             if(!string.IsNullOrEmpty(id))
@@ -28,6 +27,36 @@ namespace Proyecto.Controllers
             {
                 return View("MultiCurso",_context.Cursos);
             }
+        }
+
+        public IActionResult Create()
+        {
+            ViewBag.fecha = DateTime.Now;
+
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Create(Curso curso)
+        {
+            ViewBag.fecha = DateTime.Now;
+            if(ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
+
+                curso.EscuelaId = escuela.Id;
+
+                _context.Cursos.Add(curso);
+                _context.SaveChanges();
+                
+                ViewBag.MensajeExtra = "Curso Creado";
+                return View("Index", curso);
+            }
+            else
+            {
+                return View(curso);
+            }
+            
         }
         
         public IActionResult MultiCurso()

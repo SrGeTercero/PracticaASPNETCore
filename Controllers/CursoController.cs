@@ -58,6 +58,15 @@ namespace Proyecto.Controllers
             }
             
         }
+
+        
+        public IActionResult Update(Curso curso)
+        {
+            ViewBag.IdCursoAEditar = curso.Id;
+            ViewBag.fecha = DateTime.Now;
+
+            return View();
+        }
         
         public IActionResult MultiCurso()
         {

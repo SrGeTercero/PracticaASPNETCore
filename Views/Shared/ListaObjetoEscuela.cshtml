@@ -6,6 +6,10 @@
         <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Id</th>
+            <th scope="col">Jornada</th>
+            <th scope="col">Direccion</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +18,10 @@
             <tr>
                 <td>@obj.Nombre</td>
                 <td>@obj.Id</td>
+                <td>@obj.Jornada</td>
+                <td>@obj.Direccion</td>
+                <td>@Ajax.ActionLink("Editar", "Update", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-primary"})</td>
+                <td>Eliminar</td>
             </tr>
         }
     </tbody>

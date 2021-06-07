@@ -15,5 +15,9 @@
 </address>
 <p><strong>Año Fundación: @Model.AñoCreacion</strong></p>
 
+@Html.ActionLink("Cursos", "Multicurso", "Curso",null, new{@class="btn btn-primary"})
+@Html.ActionLink("Alumnos", "MultiAlumno", "Alumno",null, new{@class="btn btn-primary"})
+@Html.ActionLink("Asignaturas", "MultiAsignatura", "Asignatura",null, new{@class="btn btn-primary"})
+
 <p><strong>@ViewBag.cosaDinamica</strong></p>
 <p><strong>@ViewData["cosaDinamica"]</strong></p>

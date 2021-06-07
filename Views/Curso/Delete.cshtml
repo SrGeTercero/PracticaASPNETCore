@@ -2,22 +2,22 @@
 
 
 @{
-    ViewData["Title"] = "Actualización de Curso";
+    ViewData["Title"] = "Eliminar Curso";
     Layout = "_Simple";
 }
 
 <h1>@ViewData["Title"]</h1>
-<h2>@ViewBag.IdCursoAEditar</h2>
+<h2>@ViewBag.IdCursoAEliminar</h2>
 
 <div asp-validation-summary="All"></div>
 <form method="POST">
     <div>
         <label asp-for="Nombre"></label>
-        <input asp-for="Nombre"/>
+        <input asp-for="Nombre" disabled/>
     </div>  
     <div>
         <label asp-for="Direccion"></label>
-        <input asp-for="Direccion"/>
+        <input asp-for="Direccion" disabled/>
     </div>
     <div>
         <label asp-for="Jornada"></label>
@@ -29,7 +29,7 @@
             new { @class = "form-control" }
         )
     </div>
-    <input type="submit"/>
+    <input type="submit" value="Confirmar"/>
 </form>
 
 

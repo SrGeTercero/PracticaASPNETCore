@@ -59,7 +59,6 @@ namespace Proyecto.Controllers
             
         }
 
-        
         public IActionResult Update(Curso curso)
         {
             ViewBag.IdCursoAEditar = curso.Id;
@@ -67,7 +66,60 @@ namespace Proyecto.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Update(Curso curso, bool flag = false)
+        {
+            ViewBag.fecha = DateTime.Now;
+            if(ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
+
+                curso.EscuelaId = escuela.Id;
+
+                _context.Cursos.Update(curso);
+                _context.SaveChanges();
+                
+                ViewBag.MensajeExtra = "Curso Actualizado";
+                return View("Index", curso);
+            }
+            else
+            {
+                return View(curso);
+            }
+        }
+
+        public IActionResult Delete(Curso curso)
+        {
+            ViewBag.IdCursoAEliminar = curso.Id;
+            ViewBag.fecha = DateTime.Now;
+
+            return View();
+        }
         
+        [HttpPost]
+        public IActionResult Delete(Curso curso, bool flag = false)
+        {
+            ViewBag.fecha = DateTime.Now;
+            if(ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
+
+                curso.EscuelaId = escuela.Id;
+
+                _context.Cursos.Remove(curso);
+                _context.SaveChanges();
+                
+                ViewBag.MensajeExtra = "Curso Eliminado";
+                //return View("Index", curso);
+                return View("MultiCurso",_context.Cursos);
+            }
+            else
+            {
+                return View(curso);
+            }
+        }
+
         public IActionResult MultiCurso()
         {
             // var asignatura = new Asignatura{

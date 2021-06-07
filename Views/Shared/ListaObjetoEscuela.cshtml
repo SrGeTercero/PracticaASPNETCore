@@ -6,8 +6,8 @@
         <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Id</th>
-            <th scope="col">Jornada</th>
-            <th scope="col">Direccion</th>
+            <!--<th scope="col">Jornada</th>
+            <th scope="col">Direccion</th>-->
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -18,10 +18,19 @@
             <tr>
                 <td>@obj.Nombre</td>
                 <td>@obj.Id</td>
-                <td>@obj.Jornada</td>
-                <td>@obj.Direccion</td>
-                <td>@Ajax.ActionLink("Editar", "Update", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-primary"})</td>
-                <td>Eliminar</td>
+                @{
+                    if (obj is Curso)
+                    {
+                        <td>@Html.ActionLink("Actualizar", "Update", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-primary"})</td>
+                        <td>@Html.ActionLink("Eliminar", "Delete", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-danger"})</td>
+                    }
+                    else
+                    {
+                        <td>Actualizar</td>
+                        <td>Eliminar</td>
+                    }
+                }
+                
             </tr>
         }
     </tbody>

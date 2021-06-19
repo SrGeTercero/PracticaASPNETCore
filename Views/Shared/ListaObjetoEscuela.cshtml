@@ -24,6 +24,11 @@
                         <td>@Html.ActionLink("Actualizar", "Update", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-warning"})</td>
                         <td>@Html.ActionLink("Eliminar", "Delete", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-danger"})</td>
                     }
+                    else if(obj is Alumno)
+                    {
+                        <td>@Html.ActionLink("Actualizar", "Update", "Alumno", new{Id = @obj.Id, Nombre = @obj.Nombre}, new{@class="btn btn-warning"})</td>
+                        <td>@Html.ActionLink("Eliminar", "Delete", "Alumno", new{Id = @obj.Id, Nombre = @obj.Nombre}, new{@class="btn btn-danger"})</td>
+                    }
                     else
                     {
                         <td>Actualizar</td>

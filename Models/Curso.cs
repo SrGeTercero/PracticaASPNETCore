@@ -9,8 +9,7 @@ namespace Proyecto.Models
         //override
         [Required]
         public override string Nombre {get; set;}
-
-        
+   
         //referencia hacia padre
         public string EscuelaId { get; set; }
         public Escuela Escuela { get; set; }

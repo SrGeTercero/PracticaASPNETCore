@@ -120,7 +120,45 @@ namespace Proyecto.Controllers
             }
         }
 
-        
+        public IActionResult Delete(Alumno alumno)
+        {
+            ViewBag.IdAlumnoAEliminar = alumno.Id;
+            ViewBag.idCursosDisponibles = ObtenerListaDeCursosParaDropDownList();
+            ViewBag.fecha = DateTime.Now;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Alumno alumno, bool flag = false)
+        {
+            ViewBag.fecha = DateTime.Now;
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    //var curso = _context.Cursos.Find(alumno.CursoId);
+
+                    //alumno.CursoId = curso.Id;
+
+                    _context.Alumnos.Remove(alumno);
+                    _context.SaveChanges();
+
+                    ViewBag.MensajeExtra = "Alumno Eliminado";
+                    return View("MultiAlumno", _context.Alumnos);
+                }catch(Exception ex){
+                    ViewBag.MensajeException = ex.Message;
+                    ViewBag.idCursosDisponibles = ObtenerListaDeCursosParaDropDownList();
+                    return View(alumno);
+                }
+            }
+            else
+            {
+                ViewBag.idCursosDisponibles = ObtenerListaDeCursosParaDropDownList();
+                return View(alumno);
+            }
+
+        }
         public IActionResult MultiAlumno()
         {
             // var asignatura = new Asignatura{

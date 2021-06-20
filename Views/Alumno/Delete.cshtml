@@ -1,0 +1,26 @@
+@model Alumno
+
+@{
+    ViewData["Title"] = "Eliminar Alumno";
+    Layout = "_Simple";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2 class="" style="color:red">@ViewBag.MensajeException</h2>
+<h2>@ViewBag.IdAlumnoAEliminar</h2>
+
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" disabled/>
+    </div>
+    <div>
+        <label asp-for="CursoId"></label>
+        <input asp-for="CursoId" disabled/>
+    </div>
+    <input type="submit" value="Confirmar para Eliminar" class="btn btn-danger"/>
+    @Html.ActionLink("Cancelar", "MultiAlumno", "Alumno",null, new{@class="btn btn-primary"})
+</form>
+
+<p><strong>@ViewData["fecha"]</strong></p>

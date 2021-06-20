@@ -1,12 +1,12 @@
-@model Alumno
+@model Asignatura
 
 @{
-    ViewData["Title"] = "Actualización de Alumno";
+    ViewData["Title"] = "Actualización de Asignatura";
     Layout = "_Simple";
 }
 
 <h1>@ViewData["Title"]</h1>
-<h2>@ViewBag.IdAlumnoAEditar</h2>
+<h2>@ViewBag.IdAsignaturaAEditar</h2>
 
 <div asp-validation-summary="All"></div>
 <form method="POST">
@@ -24,7 +24,7 @@
         )
     </div>
     <input type="submit" value="Actualizar" class="btn btn-warning"/>
-    @Html.ActionLink("Cancelar", "MultiAlumno", "Alumno",null, new{@class="btn btn-primary"})
+    @Html.ActionLink("Cancelar", "MultiAsignatura", "Asignatura",null, new{@class="btn btn-primary"})
 </form>
 
 

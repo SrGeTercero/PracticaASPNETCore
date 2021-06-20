@@ -20,7 +20,6 @@
     </div>
     <div>
         <label asp-for="Jornada"></label>
-        <!--<input asp-for="Jornada"/>-->
         @Html.DropDownList(
             "Jornada",
             Html.GetEnumSelectList<TiposJornada>(),

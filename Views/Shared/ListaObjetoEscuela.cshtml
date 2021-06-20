@@ -21,13 +21,18 @@
                 @{
                     if (obj is Curso)
                     {
-                        <td>@Html.ActionLink("Actualizar", "Update", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-warning"})</td>
-                        <td>@Html.ActionLink("Eliminar", "Delete", "Curso", new{Id = @obj.Id, Nombre = @obj.Nombre, Jornada = @obj.Jornada, Direccion = @obj.Direccion}, new{@class="btn btn-danger"})</td>
+                        <td>@Html.ActionLink("Actualizar", "Update", "Curso", new{Id = obj.Id, Nombre = obj.Nombre, Jornada = obj.Jornada, Direccion = obj.Direccion}, new{@class="btn btn-warning"})</td>
+                        <td>@Html.ActionLink("Eliminar", "Delete", "Curso", new{Id = obj.Id, Nombre = obj.Nombre, Jornada = obj.Jornada, Direccion = obj.Direccion}, new{@class="btn btn-danger"})</td>
                     }
                     else if(obj is Alumno)
                     {
-                        <td>@Html.ActionLink("Actualizar", "Update", "Alumno", new{Id = @obj.Id, Nombre = @obj.Nombre}, new{@class="btn btn-warning"})</td>
-                        <td>@Html.ActionLink("Eliminar", "Delete", "Alumno", new{Id = @obj.Id, Nombre = @obj.Nombre}, new{@class="btn btn-danger"})</td>
+                        <td>@Html.ActionLink("Actualizar", "Update", "Alumno", new{Id = obj.Id, Nombre = obj.Nombre, CursoId = obj.CursoId}, new{@class="btn btn-warning"})</td>
+                        <td>@Html.ActionLink("Eliminar", "Delete", "Alumno", new{Id = obj.Id, Nombre = obj.Nombre, CursoId = obj.CursoId}, new{@class="btn btn-danger"})</td>
+                    }
+                    else if(obj is Asignatura)
+                    {
+                        <td>@Html.ActionLink("Actualizar", "Update", "Asignatura", new{Id = obj.Id, Nombre = obj.Nombre, CursoId = obj.CursoId}, new{@class="btn btn-warning"})</td>
+                        <td>@Html.ActionLink("Eliminar", "Delete", "Asignatura", new{Id = obj.Id, Nombre = obj.Nombre, CursoId = obj.CursoId}, new{@class="btn btn-danger"})</td>
                     }
                     else
                     {

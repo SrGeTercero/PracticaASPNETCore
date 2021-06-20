@@ -8,8 +8,9 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<strong>Desde la vista parcial</strong>
-
+<strong>Desde la vista parcial - Utilizando Tabla de Botstrap</strong>
+@Html.ActionLink("Crear", "Create", "Asignatura",null, new{@class="btn btn-success"})
+@Html.ActionLink("Ir a Escuela", "Index", "Escuela",null, new{@class="btn btn-info"})
 <partial name="ListaObjetoEscuela" />
 
 <p><strong>@ViewBag.cosaDinamica</strong></p>

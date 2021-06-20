@@ -57,7 +57,6 @@ namespace Proyecto.Controllers
             ViewBag.fecha = DateTime.Now;
             if(ModelState.IsValid)
             {
-                //revisar aca!!
                 try
                 {
                     var curso = _context.Cursos.Find(alumno.CursoId);
@@ -81,6 +80,47 @@ namespace Proyecto.Controllers
                 return View(alumno);
             }
         }
+
+        public IActionResult Update(Alumno alumno)
+        {
+            ViewBag.IdAlumnoAEditar = alumno.Id;
+            ViewBag.idCursosDisponibles = ObtenerListaDeCursosParaDropDownList();
+            ViewBag.fecha = DateTime.Now;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Update(Alumno alumno, bool flag = false)
+        {
+            ViewBag.fecha = DateTime.Now;
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    var curso = _context.Cursos.Find(alumno.CursoId);
+
+                    alumno.CursoId = curso.Id;
+
+                    _context.Alumnos.Update(alumno);
+                    _context.SaveChanges();
+
+                    ViewBag.MensajeExtra = "Alumno Actualizado";
+                    return View("Index", alumno);
+                }catch(Exception ex){
+                    ViewBag.MensajeException = ex.Message;
+                    ViewBag.idCursosDisponibles = ObtenerListaDeCursosParaDropDownList();
+                    return View(alumno);
+                }
+            }
+            else
+            {
+                ViewBag.idCursosDisponibles = ObtenerListaDeCursosParaDropDownList();
+                return View(alumno);
+            }
+        }
+
+        
         public IActionResult MultiAlumno()
         {
             // var asignatura = new Asignatura{

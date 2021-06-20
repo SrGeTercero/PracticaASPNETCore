@@ -1,0 +1,31 @@
+@model Alumno
+
+@{
+    ViewData["Title"] = "Actualización de Alumno";
+    Layout = "_Simple";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2>@ViewBag.IdAlumnoAEditar</h2>
+
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre"/>
+    </div>
+    <div>
+        <label asp-for="CursoId"></label>
+        @Html.DropDownListFor(
+            x=>x.CursoId, 
+            (IEnumerable<SelectListItem>)ViewBag.idCursosDisponibles,
+            "Seleccione un curso",
+            new { @class = "form-control" }
+        )
+    </div>
+    <input type="submit" value="Actualizar" class="btn btn-success"/>
+    @Html.ActionLink("Cancelar", "MultiAlumno", "Alumno",null, new{@class="btn btn-primary"})
+</form>
+
+
+<p><strong>@ViewData["fecha"]</strong></p>

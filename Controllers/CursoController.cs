@@ -70,6 +70,7 @@ namespace Proyecto.Controllers
         [HttpPost]
         public IActionResult Update(Curso curso, bool flag = false)
         {
+            ViewBag.IdCursoAEditar = curso.Id;
             ViewBag.fecha = DateTime.Now;
             if(ModelState.IsValid)
             {

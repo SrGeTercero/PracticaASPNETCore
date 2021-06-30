@@ -7,7 +7,9 @@ namespace Proyecto.Models
     public class Curso : ObjetoEscuelaBase
     {
         //override
-        [Required]
+        [Display(Prompt ="Menor o igual a 5")]
+        [Required(ErrorMessage = "El nombre del curso es requerido") ]
+        [StringLength(5, ErrorMessage ="El nombre del curso no puede ser mayor a 5 caracteres")]
         public override string Nombre {get; set;}
    
         //referencia hacia padre
@@ -16,6 +18,10 @@ namespace Proyecto.Models
 
         //propiedad normal
         public TiposJornada Jornada { get; set; }
+        
+        [Display(Prompt ="Dirección de correspondencia", Name ="Address")]
+        [Required(ErrorMessage = "Se requiere incluir una dirección")]
+        [MinLength(10, ErrorMessage = "La longitud minima de la dirección es 10 caracteres")]
         public string Direccion { get; set; }
         
         //referencia hacia hijos

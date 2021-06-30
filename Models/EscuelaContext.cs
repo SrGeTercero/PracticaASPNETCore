@@ -77,35 +77,40 @@ namespace Proyecto.Models
                     Id = Guid.NewGuid().ToString(),
                     Nombre = "101",
                     Jornada = TiposJornada.Mañana,
-                    EscuelaId = escuela.Id
+                    EscuelaId = escuela.Id,
+                    Direccion = "Avenida siempre viva"
                 },
                 new Curso()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Nombre = "102",
                     Jornada = TiposJornada.Mañana,
-                    EscuelaId = escuela.Id
+                    EscuelaId = escuela.Id,
+                    Direccion = "Avenida siempre viva"
                 },
                 new Curso()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Nombre = "103",
                     Jornada = TiposJornada.Mañana,
-                    EscuelaId = escuela.Id
+                    EscuelaId = escuela.Id,
+                    Direccion = "Avenida siempre viva"
                 },
                 new Curso()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Nombre = "104",
                     Jornada = TiposJornada.Mañana,
-                    EscuelaId = escuela.Id
+                    EscuelaId = escuela.Id,
+                    Direccion = "Avenida siempre viva"
                 },
                 new Curso()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Nombre = "105",
                     Jornada = TiposJornada.Mañana,
-                    EscuelaId = escuela.Id
+                    EscuelaId = escuela.Id,
+                    Direccion = "Avenida siempre viva"
                 }
             };
         }

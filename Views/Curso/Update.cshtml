@@ -10,15 +10,17 @@
 <h2 class="" style="color:red">@ViewBag.MensajeException</h2>
 <h2>@ViewBag.IdCursoAEditar</h2>
 
-<div asp-validation-summary="All"></div>
+<!--<div asp-validation-summary="All"></div>-->
 <form method="POST">
     <div>
         <label asp-for="Nombre"></label>
         <input asp-for="Nombre"/>
+        <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>  
     <div>
         <label asp-for="Direccion"></label>
         <input asp-for="Direccion"/>
+        <span asp-validation-for="Direccion" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Jornada"></label>
@@ -29,6 +31,7 @@
             "Seleccione una jornada",
             new { @class = "form-control" }
         )
+        <span asp-validation-for="Jornada" class="text-danger"></span>
     </div>
     <input type="submit" value="Actualizar" class="btn btn-warning"/>
     @Html.ActionLink("Cancelar", "Multicurso", "Curso",null, new{@class="btn btn-primary"})

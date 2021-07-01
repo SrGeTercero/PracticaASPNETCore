@@ -13,6 +13,7 @@
     <div>
         <label asp-for="Nombre"></label>
         <input asp-for="Nombre"/>
+        <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="CursoId"></label>
@@ -22,6 +23,7 @@
             "Seleccione un curso",
             new { @class = "form-control" }
         )
+        <span asp-validation-for="CursoId" class="text-danger"></span>
     </div>
     <input type="submit" value="Crear" class="btn btn-success"/>
     @Html.ActionLink("Cancelar", "MultiAlumno", "Alumno",null, new{@class="btn btn-primary"})

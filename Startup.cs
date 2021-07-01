@@ -37,7 +37,16 @@ namespace Proyecto
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             //Nuevo, para crear los datos desde los servicios
-            services.AddDbContext<EscuelaContext>(options => options.UseInMemoryDatabase(databaseName: "testDB"));
+
+            //para datos en memoria
+            //services.AddDbContext<EscuelaContext>(options => options.UseInMemoryDatabase(databaseName: "testDB"));
+
+            //para datos a DB produccion
+            string connectionString = ConfigurationExtensions
+                                    .GetConnectionString(this.Configuration, "DefaultConnectionString");
+            services.AddDbContext<EscuelaContext>(
+                options => options.UseSqlServer(connectionString));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
